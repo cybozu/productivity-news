@@ -13,6 +13,7 @@ const Stories = ({ posts }: Props) => {
           <PostPreview
             key={post.slug}
             title={post.title}
+            year={post.year}
             slug={post.slug}
             excerpt={post.excerpt}
           />

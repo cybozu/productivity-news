@@ -33,6 +33,7 @@ export default Index
 export const getStaticProps = async () => {
   const allPosts = getAllPosts([
     'title',
+    'year',
     'slug',
     'excerpt',
   ])
