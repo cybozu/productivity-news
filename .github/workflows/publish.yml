@@ -1,0 +1,30 @@
+# Cybozu Productivity News のサイトを GitHub Pages に公開する
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: Build and Export
+        run: |
+          npm ci
+          npm run build
+          npm run export
+
+      - name: Deploy gh-pages
+        uses: JamesIves/github-pages-deploy-action@830e6a4f7c81743c52f3fed0ac67428feff9620a # v4.2.5
+        with:
+          branch: gh-pages
+          folder: out
