@@ -1,8 +1,8 @@
+import Head from "next/head";
 import Container from "../../../components/container";
 import Intro from "../../../components/intro";
 import Layout from "../../../components/layout";
 import { getAllYears, getPostsByYear } from "../../../lib/api";
-import Head from "next/head";
 import { CMS_NAME } from "../../../lib/constants";
 import Post from "../../../types/post";
 import Stories from "../../../components/stories";

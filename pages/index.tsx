@@ -1,9 +1,9 @@
+import Head from "next/head";
 import Container from "../components/container";
 import Stories from "../components/stories";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
-import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import Post from "../types/post";
 

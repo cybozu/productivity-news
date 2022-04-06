@@ -7,8 +7,10 @@
     "start": "next start",
     "lint": "run-p 'lint:*'",
     "lint:prettier": "prettier --check '**/*.{js,jsx,ts,tsx,json,json5,yml,yaml}'",
+    "lint:eslint": "next lint",
     "fix": "run-s 'fix:*'",
-    "fix:prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,json5,yml,yaml}'"
+    "fix:prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,json5,yml,yaml}'",
+    "fix:eslint": "next lint --fix"
   },
   "dependencies": {
     "gray-matter": "4.0.3",
@@ -25,6 +27,10 @@
     "@types/react": "^17.0.6",
     "@types/react-dom": "^17.0.5",
     "autoprefixer": "10.4.0",
+    "eslint": "8.12.0",
+    "eslint-config-next": "12.1.4",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.5",
     "prettier": "2.6.2",
