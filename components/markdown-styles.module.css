@@ -6,7 +6,13 @@
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-6;
+  @apply my-1;
+}
+
+.markdown ul {
+  @apply list-disc;
+  @apply list-inside;
+  @apply ml-6;
 }
 
 .markdown h2 {
