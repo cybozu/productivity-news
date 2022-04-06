@@ -6,7 +6,13 @@
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-6;
+  @apply my-1;
+}
+
+.markdown ul {
+  @apply list-disc;
+  @apply list-inside;
+  @apply ml-6;
 }
 
 .markdown h2 {
@@ -15,4 +21,8 @@
 
 .markdown h3 {
   @apply text-2xl mt-8 mb-4 leading-snug;
+}
+
+.markdown a {
+  @apply underline text-blue-600 hover:text-blue-800 visited:text-blue-900
 }
