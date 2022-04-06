@@ -1,15 +1,15 @@
-import Container from '../../../components/container'
-import Intro from '../../../components/intro'
-import Layout from '../../../components/layout'
-import { getAllYears, getPostsByYear } from '../../../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../../../lib/constants'
-import Post from '../../../types/post'
+import Container from "../../../components/container";
+import Intro from "../../../components/intro";
+import Layout from "../../../components/layout";
+import { getAllYears, getPostsByYear } from "../../../lib/api";
+import Head from "next/head";
+import { CMS_NAME } from "../../../lib/constants";
+import Post from "../../../types/post";
 import Stories from "../../../components/stories";
 
 type Props = {
-  posts: Post[]
-}
+  posts: Post[];
+};
 
 const Index = ({ posts }: Props) => {
   return (
@@ -24,34 +24,29 @@ const Index = ({ posts }: Props) => {
         </Container>
       </Layout>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
 
 type Params = {
   params: {
-    year: string
-  }
-}
+    year: string;
+  };
+};
 
 export const getStaticProps = async ({ params: { year } }: Params) => {
-  const posts = getPostsByYear(year,[
-    'title',
-    'year',
-    'slug',
-    'excerpt',
-  ])
+  const posts = getPostsByYear(year, ["title", "year", "slug", "excerpt"]);
 
   return {
     props: { posts: posts },
-  }
-}
+  };
+};
 
 export async function getStaticPaths() {
-  const years = getAllYears()
+  const years = getAllYears();
   return {
     paths: years.map((year) => `/posts/${year}`),
-    fallback: false
-  }
+    fallback: false,
+  };
 }

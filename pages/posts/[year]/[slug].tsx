@@ -1,26 +1,26 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import Container from '../../../components/container'
-import PostBody from '../../../components/post-body'
-import Header from '../../../components/header'
-import PostHeader from '../../../components/post-header'
-import Layout from '../../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../../lib/api'
-import PostTitle from '../../../components/post-title'
-import Head from 'next/head'
-import { CMS_NAME } from '../../../lib/constants'
-import markdownToHtml from '../../../lib/markdownToHtml'
-import PostType from '../../../types/post'
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
+import Container from "../../../components/container";
+import PostBody from "../../../components/post-body";
+import Header from "../../../components/header";
+import PostHeader from "../../../components/post-header";
+import Layout from "../../../components/layout";
+import { getPostBySlug, getAllPosts } from "../../../lib/api";
+import PostTitle from "../../../components/post-title";
+import Head from "next/head";
+import { CMS_NAME } from "../../../lib/constants";
+import markdownToHtml from "../../../lib/markdownToHtml";
+import PostType from "../../../types/post";
 
 type Props = {
-  post: PostType
-  preview?: boolean
-}
+  post: PostType;
+  preview?: boolean;
+};
 
 const Post = ({ post, preview }: Props) => {
-  const router = useRouter()
+  const router = useRouter();
   if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
+    return <ErrorPage statusCode={404} />;
   }
   return (
     <Layout preview={preview}>
@@ -36,35 +36,28 @@ const Post = ({ post, preview }: Props) => {
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
               </Head>
-              <PostHeader
-                title={post.title}
-              />
+              <PostHeader title={post.title} />
               <PostBody content={post.content} />
             </article>
           </>
         )}
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
 
 type Params = {
   params: {
-    year: string
-    slug: string
-  }
-}
+    year: string;
+    slug: string;
+  };
+};
 
 export async function getStaticProps({ params: { year, slug } }: Params) {
-  const post = getPostBySlug(year, slug, [
-    'title',
-    'year',
-    'slug',
-    'content'
-  ])
-  const content = await markdownToHtml(post.content || '')
+  const post = getPostBySlug(year, slug, ["title", "year", "slug", "content"]);
+  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
@@ -73,16 +66,16 @@ export async function getStaticProps({ params: { year, slug } }: Params) {
         content,
       },
     },
-  }
+  };
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['year', 'slug']);
+  const posts = getAllPosts(["year", "slug"]);
 
   return {
     paths: posts.map(({ year, slug }) => {
-      return { params: { year, slug } }
+      return { params: { year, slug } };
     }),
     fallback: false,
-  }
+  };
 }

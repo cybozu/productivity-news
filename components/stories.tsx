@@ -1,9 +1,9 @@
-import PostPreview from './post-preview'
-import Post from '../types/post'
+import PostPreview from "./post-preview";
+import Post from "../types/post";
 
 type Props = {
-  posts: Post[]
-}
+  posts: Post[];
+};
 
 const Stories = ({ posts }: Props) => {
   return (
@@ -20,7 +20,7 @@ const Stories = ({ posts }: Props) => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Stories
+export default Stories;
