@@ -3,7 +3,6 @@ import Container from "../../../components/container";
 import Intro from "../../../components/intro";
 import Layout from "../../../components/layout";
 import { getAllYears, getPostsByYear } from "../../../lib/api";
-import { CMS_NAME } from "../../../lib/constants";
 import Post from "../../../types/post";
 import Stories from "../../../components/stories";
 
@@ -16,7 +15,7 @@ const Index = ({ posts }: Props) => {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Cybozu Productivity News</title>
         </Head>
         <Container>
           <Intro />
