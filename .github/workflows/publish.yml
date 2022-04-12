@@ -18,6 +18,8 @@ jobs:
           node-version: lts/*
 
       - name: Build and Export
+        env:
+          BASE_PATH: "/productivity-news"
         run: |
           npm ci
           npm run build
