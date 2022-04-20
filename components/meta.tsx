@@ -12,7 +12,6 @@ const Meta = () => {
       <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
       <link rel="manifest" href="/favicon/site.webmanifest" />
 
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
 
       <meta name="theme-color" content="#000" />
       <meta property="og:image" content={DEFAULT_OG_IMAGE_URL} />
