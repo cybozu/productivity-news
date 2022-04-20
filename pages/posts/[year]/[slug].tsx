@@ -10,6 +10,7 @@ import { getPostBySlug, getAllPosts } from "../../../lib/api";
 import PostTitle from "../../../components/post-title";
 import markdownToHtml from "../../../lib/markdownToHtml";
 import PostType from "../../../types/post";
+import { DEFAULT_OG_IMAGE_URL } from "../../../lib/constants";
 
 type Props = {
   post: PostType;
@@ -21,6 +22,9 @@ const Post = ({ post, preview }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
+  const title = `${post.title} | Cybozu Productivity News`;
+
   return (
     <Layout preview={preview}>
       <Container>
@@ -31,7 +35,8 @@ const Post = ({ post, preview }: Props) => {
           <>
             <article className="mb-32">
               <Head>
-                <title>{post.title} | Cybozu Productivity News</title>
+                <title>{title}</title>
+                <meta name="og:title" content={title} />
               </Head>
               <PostHeader title={post.title} />
               <PostBody content={post.content} />

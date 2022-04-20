@@ -12,11 +12,14 @@ type Props = {
 
 const Index = ({ allPosts }: Props) => {
   const posts = allPosts;
+  const title = "Cybozu Productivity News";
+
   return (
     <>
       <Layout>
         <Head>
-          <title>Cybozu Productivity News</title>
+          <title>{title}</title>
+          <meta name="og:title" content={title} />
         </Head>
         <Container>
           <Intro />

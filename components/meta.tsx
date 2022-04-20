@@ -13,6 +13,7 @@ const Meta = () => {
 
       <meta name="theme-color" content="#000" />
       <meta property="og:image" content={DEFAULT_OG_IMAGE_URL} />
+      <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
 };
