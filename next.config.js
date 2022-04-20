@@ -131,6 +131,11 @@ const nextConfig = {
   // ローカル開発での利便性を考慮して環境変数で差し替え可能にする。
   assetPrefix: basePath,
   basePath,
+  // ビルド時に設定を取得できるようにする。
+  // https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
+  publicRuntimeConfig: {
+    basePath,
+  },
 
   webpack: webpackConfig,
 };
