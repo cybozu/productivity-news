@@ -15,6 +15,10 @@
   @apply ml-6;
 }
 
+.markdown h1 {
+  @apply text-5xl mt-12 mb-8 leading-normal;
+}
+
 .markdown h2 {
   @apply text-3xl mt-12 mb-4 leading-snug;
 }
@@ -24,9 +28,9 @@
 }
 
 .markdown a {
-  @apply underline text-blue-600 hover:text-blue-800 visited:text-blue-900
+  @apply underline text-blue-600 hover:text-blue-800 visited:text-blue-900;
 }
 
 .markdown ol {
-  @apply list-decimal
+  @apply list-decimal;
 }
